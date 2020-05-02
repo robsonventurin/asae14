@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Resultado')
+@section('title', 'Página Inicial')
             
 @section('content')
     <h1>Olá {{ Auth::user()->name }}, tudo bem?</h1>
