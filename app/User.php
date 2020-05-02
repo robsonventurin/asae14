@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ehAdmin() {
+        # 0 = usuário comum, default no sistema
+        # 1 = usuário administrador
+
+        return $this->nivel_acesso == 1;
+    }
 }

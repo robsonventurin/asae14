@@ -42,7 +42,6 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('listar_usuarios') }}">Listar Usuários</a>
-                            <a class="dropdown-item" href="{{ route('cadastrar_usuarios') }}">Cadastrar Novo Usuário</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -101,7 +100,11 @@
         
         <main>
             <div class="container">
-                
+                @if (session()->has('mensagem'))
+                    <div class="alert alert-danger">{{  session('mensagem') }}</div>
+                    {{ session()->forget('mensagem') }}
+                @endif
+
                 @yield('content')
                 
             </div>

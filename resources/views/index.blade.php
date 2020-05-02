@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Resultado')
+@section('title', 'Página Inicial')
             
 @section('content')
     <h1>Olá {{ session()->get('nome') }}, tudo bem?</h1>
