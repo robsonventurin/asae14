@@ -99,3 +99,6 @@ Route::get('/produtos/excluir/{id}', 'ProdutosController@excluir')->name("exclui
 Route::get('/tela_login', 'AppController@tela_login')->name('tela_login');
 Route::get('/logout', 'AppController@logout')->name('logout');
 Route::post('/login', 'AppController@login')->name('logar');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
