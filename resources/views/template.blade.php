@@ -101,7 +101,11 @@
         
         <main>
             <div class="container">
-                
+                @if (session()->has('mensagem'))
+                    <div class="alert alert-danger">{{  session('mensagem') }}</div>
+                    {{ session()->forget('mensagem') }}
+                @endif
+
                 @yield('content')
                 
             </div>
