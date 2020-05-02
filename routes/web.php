@@ -74,8 +74,6 @@ Route::middleware(['auth'])->group(function() {
 
 
 /* LOGIN */
+Route::get('/tela_login', 'AppController@tela_login')->name('tela_login');
 Route::get('/logout', 'AppController@logout')->name('logout');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/login', 'AppController@login')->name('logar');

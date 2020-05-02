@@ -17,6 +17,7 @@ class UsuarioController extends Controller
     function excluir($id){
         $usuario = User::find($id);
 
+
         if ($usuario->delete()){
             $msg = "Usuário $id excluído com sucesso.";
         } else {
