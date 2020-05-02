@@ -8,19 +8,11 @@ use App\Cliente;
 class ClienteController extends Controller
 {
     function telaCadastro() {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $lista = $this->listaEstados();
         return view('clientes.cadastrar', [ "estados" => $lista]);
     }
 
     function telaAlterar($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-        
         $lista = $this->listaEstados();
         $c = Cliente::find($id);
         return view('clientes.alterar', [ "estados" => $lista, "cliente" => $c]);
@@ -102,10 +94,6 @@ class ClienteController extends Controller
     }
 
     function excluir($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-        
         $c = Cliente::find($id);
 
         if ($c->delete()) {

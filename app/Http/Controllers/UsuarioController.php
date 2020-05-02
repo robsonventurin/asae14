@@ -8,18 +8,10 @@ use App\Usuario;
 class UsuarioController extends Controller
 {
     function telaCadastro(){
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
     	return view("usuarios.cadastrar");
     }
 
     function telaAlteracao($id){
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-        
         $usuario = Usuario::find($id);
 
         return view("usuarios.alterar", [ "usuario" => $usuario ]);
@@ -62,10 +54,6 @@ class UsuarioController extends Controller
     }
 
     function excluir($id){
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-        
         $usuario = Usuario::find($id);
 
         if ($usuario->delete()){

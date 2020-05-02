@@ -76,10 +76,10 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown" >
-                            @if(session()->has('login'))
+                            @if(Auth::check())
                                 <a class="nav-link " href="{{ route('logout') }}">Fazer Logout</a>
                             @else 
-                                <a class="nav-link " href="{{ route('tela_login') }}">Fazer Login</a>
+                                <a class="nav-link " href="{{ route('login') }}">Fazer Login</a>
                             @endif
                         </li>
                     </ul>
