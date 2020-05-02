@@ -33,10 +33,6 @@ Route::middleware(['auth'])->group(function() {
 
     Route::middleware(['eh_admin'])->group(function() {
         /* Usuarios */
-        Route::get('/usuarios/cadastro', 'UsuarioController@telaCadastro')->name('cadastrar_usuarios');
-        Route::post('/usuarios/cadastro/efetua', 'UsuarioController@adicionar')->name('cadastrar_usuarios_efetua');
-        Route::get('/usuarios/alterar/{id}', 'UsuarioController@telaAlteracao')->name('alterar_usuarios');
-        Route::post('/usuarios/alterar/efetua/{id}', 'UsuarioController@alterar')->name('alterar_usuarios_efetua');
         Route::get('/usuarios/excluir/{id}', 'UsuarioController@excluir')->name('excluir_usuarios');
 
         /* Rotas para clientes */

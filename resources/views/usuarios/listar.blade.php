@@ -3,7 +3,7 @@
 @section('title', 'Listar Usuários')
             
 @section('subtitle')
-    Página de listagem de usuários. Para cadastrar um novo, clique <a href="{{ route('cadastrar_usuarios') }}">aqui</a>.<br>
+    Página de listagem de usuários. <br>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
             <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
-            <th scope="col">Login</th>
+            <th scope="col">Email</th>
             <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -20,14 +20,13 @@
             @foreach ($us as $u) 
                 <tr>
                     <th scope="row">{{ $u->id }}</th>
-                    <td>{{ $u->nome }}</td>
-                    <td>{{ $u->login }}</td>
+                    <td>{{ $u->name }}</td>
+                    <td>{{ $u->email }}</td>
                     <td>
                         <a href="#" data-toggle="modal" data-target="#modalExcluir"
                             data-href="{{ route('excluir_usuarios', [ 'id' => $u->id ]) }}"
                             data-nome="{{ $u->nome }}" data-id="{{ $u->id }} "
-                        >Excluir</a> -
-                        <a href="{{ route('alterar_usuarios', [ 'id' => $u->id ]) }}">Alterar</a>
+                        >Excluir</a>
                     </td>
                 </tr>
             @endforeach
