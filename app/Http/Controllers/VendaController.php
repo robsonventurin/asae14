@@ -10,29 +10,17 @@ use App\Cliente;
 class VendaController extends Controller
 {
     function telaCadastro() {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $cliente = Cliente::all();
         return view('vendas.cadastrar', [ "clientes" => $cliente]);
     }
 
     function telaAlterar($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $cliente = Cliente::all();
         $v = Venda::find($id);
         return view('vendas.alterar', [ "clientes" => $cliente, "venda" => $v]);
     }
 
     function telaCadastroItem($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $v = Venda::find($id);
         $produtos = Produtos::all();
         return view('vendas.cadastrar_item', [ "venda" => $v, "produtos" => $produtos ]);
@@ -118,10 +106,6 @@ class VendaController extends Controller
 
 
     function excluir($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-        
         $v = Venda::find($id);
 
         if ($v->delete()) {
@@ -134,10 +118,6 @@ class VendaController extends Controller
     }
 
     function excluirItem($id, $id_produto) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $subtotal = 0;        
         $v = Venda::find($id);
         foreach($v->produtos as $p) {

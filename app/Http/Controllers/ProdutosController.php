@@ -14,19 +14,11 @@ class ProdutosController extends Controller
     }
 
     function telaCadastro() {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $t = TipoProdutos::all();
         return view('produtos.cadastrar', ["t" => $t]);
     }
 
     function telaAlterar($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-
         $p = Produtos::find($id);
         $t = TipoProdutos::all();
         return view('produtos.alterar', ["t" => $t, "p" => $p]);
@@ -69,10 +61,6 @@ class ProdutosController extends Controller
     }
 
     function excluir($id) {
-        if (!session()->has('login')) {
-            return redirect()->route('tela_login');
-        }
-        
         $c = Produtos::find($id);
 
         if ($c->delete()) {
