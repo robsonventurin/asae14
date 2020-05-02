@@ -8,10 +8,18 @@ use App\Usuario;
 class AppController extends Controller
 {
     function tela_login(){
+        if (session()->has('login')) {
+            return redirect()->route('index');
+        }
+
     	return view('usuarios.login');
     }
 
     function index(){
+        if (!session()->has('login')) {
+            return redirect()->route('tela_login');
+        }
+
     	return view('index');
     }
 
@@ -35,7 +43,7 @@ class AppController extends Controller
     }
 
     function logout(){
-        Auth::logout();
+        session()->forget(["login", "nome"]);
         
         return redirect()->route('tela_login');
     }
